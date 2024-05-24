@@ -1,17 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 
-export default function Sidebar() {
-  const [isSideOpen, setIsSideOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSideOpen(!isSideOpen);
-  };
-
+export default function Sidebar({ isSideOpen, toggleSidebar }) {
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div
+      <div 
         className={`fixed inset-y-0 left-0 transform ${
           isSideOpen ? 'translate-x-0' : '-translate-x-full'
         } lg:translate-x-0 lg:static z-10 transition-transform duration-300 ease-in-out w-64 bg-[#3D4143] text-white`}

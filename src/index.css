@@ -11,3 +11,17 @@
     src: url('./assets/fonts/KulimPark-Light.ttf');
 }
 
+/* src/styles/Scrollbar.css */
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+    width: 6px; /* Set a small width */
+    height: 6px; /* Set a small height */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: transparent; /* Make the scrollbar thumb transparent */
+  }
+  
+

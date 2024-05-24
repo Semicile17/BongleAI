@@ -1,14 +1,27 @@
 // App.jsx
-import Sidebar from "./components/sidebar";
-import Input from "./components/inputbox";
-import BongleImg from "./assets/Images/favicon.png";
+import React, { useState } from 'react';
+import Sidebar from './components/sidebar';
+import InputBox from './components/inputbox';
+import BongleImg from './assets/Images/favicon.png';
+import ChatInterface from './components/chatinterface';
 
-function App() {
+const App = () => {
+  const [isSideOpen, setIsSideOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSideOpen(!isSideOpen);
+  };
+
+  const handleSendMessage = (message) => {
+    console.log("Message sent:", message);
+    // Implement your logic to send the message here
+  };
+
   return (
-    <div className="w-full h-screen bg-black flex">
-      <Sidebar />
+    <div className="w-full h-screen bg-black flex overflow-hidden">
+      <Sidebar isSideOpen={isSideOpen} toggleSidebar={toggleSidebar} />
 
-      <div className=" relative  flex flex-col w-full h-full">
+      <div className="flex flex-col w-full h-full relative transition-width duration-300">
         <div className="w-full flex flex-col items-end text-white">
           <div className="w-fit flex flex-row p-5">
             <img src={BongleImg} alt="icon_img" className="w-fit h-fit mr-1" />
@@ -16,14 +29,11 @@ function App() {
           </div>
         </div>
         
-        {/* This div ensures the main content area grows to fill the space */}
-        <div className="flex-grow"></div>
-        
-        {/* Input component fixed at the bottom */}
-        <Input />
+        {/* Main content area including the Chat Interface */}
+        <ChatInterface isSideOpen={isSideOpen} onSendMessage={handleSendMessage} />
       </div>
     </div>
   );
-}
+};
 
 export default App;
