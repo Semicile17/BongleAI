@@ -24,4 +24,80 @@
     background: transparent; /* Make the scrollbar thumb transparent */
   }
   
+  .chat-container {
+    position: relative;
+    padding-bottom: 3rem; /* Give space for the input box */
+    overflow-y: auto;
+  }
+  
+  /* Handle chat message alignment and padding */
+  .chat-message {
+    display: flex;
+    padding: 0.5rem;
+  }
+  
+  .chat-message.user {
+    justify-content: flex-end;
+  }
+  
+  .chat-message.bot {
+    justify-content: flex-start;
+  }
+  
+  /* Style for the message bubble */
+  .message-bubble {
+    max-width: 80%;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  
+  .message-bubble.user {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .message-bubble.bot {
+    background-color: #444;
+    color: #fff;
+  }
+  
+  /* Ensure images are responsive */
+  .message-bubble img {
+    max-width: 100%;
+    border-radius: 0.5rem;
+  }
+  
+  /* Loader style */
+  .loader {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #fff;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin: auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Handle mobile view and menu icon spacing */
+  @media (max-width: 768px) {
+    .chat-container {
+      padding-bottom: 4rem; /* Extra space for mobile menu icon */
+    }
+  
+    .message-bubble {
+      max-width: 70%; /* Adjust max-width for smaller screens */
+    }
+  }
 
+  .icon img {
+    width: 1.5rem;  /* Adjust the size as needed */
+    height: 1.5rem; /* Adjust the size as needed */
+    border-radius: 50%; /* Optional: make the icon round */
+  }
+ 
+  
