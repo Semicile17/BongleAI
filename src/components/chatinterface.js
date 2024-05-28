@@ -73,7 +73,9 @@ export default function ChatInterface({ isSideOpen }) {
       {messages.map((msg, index) => (
         <ChatMessage key={index} sender={msg.sender} message={msg.content} type={msg.type} />
       ))}
-      {isBotTyping && <div className="loader"></div>} {/* Loading animation */}
+      {isBotTyping && (
+          <ChatMessage sender="bot" message="" type="text" isTyping={true} />
+        )} {/* Loading animation */}
       <div ref={messagesEndRef} />
     </div>
     <InputBox onSendMessage={handleSendMessage} isSideOpen={isSideOpen} />

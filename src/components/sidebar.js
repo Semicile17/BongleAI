@@ -17,7 +17,16 @@ export default function Sidebar({ isSideOpen, toggleSidebar }) {
               {isSideOpen ? <FiX className="h-6 w-6 text-white" /> : <FiMenu className="h-6 w-6 text-white" />}
             </button>
           </div>
-          <div className="mt-8"></div>
+          <div className="mt-8 flex flex-col">
+            <div>
+              Profile section
+            </div>
+           <div className='flex flex-col fixed bottom-12 w-full items-center'>
+           <button className='w-3/4 h-10 border-2 rounded-xl font-Kulim hover:text-black hover:bg-white'>Login</button>
+           <div className='h-4'></div>
+            <button className='w-3/4 h-10 border-2 rounded-xl font-Kulim  hover:text-black hover:bg-white'>Sign Up</button>
+           </div>
+          </div>
         </div>
       </div>
 

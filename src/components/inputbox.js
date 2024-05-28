@@ -21,13 +21,13 @@ export default function InputBox({ onSendMessage, isSideOpen }) {
   };
 
   return (
-    <div className="w-full  h-fit fixed bottom-0 bg-black flex items-center p-5 z-15">
+    <div className='flex mb-5 ml-5 mr-5'>
       <input
         type="text"
         value={inputValue}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
-        className="flex-grow p-3 bg-gray-900 text-white border border-gray-700 rounded-l-lg focus:outline-none focus:border-blue-500"
+        className="flex-grow md:m-2 p-3 w-full bg-gray-900 text-white border border-gray-700 rounded-l-lg focus:outline-none focus:border-blue-500 z-5"
         placeholder="Type your message here..."
       />
       <button className="bg-gray-700 text-white p-3 rounded-r-lg border" onClick={handleSendClick}>
