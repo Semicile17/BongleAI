@@ -99,5 +99,112 @@
     height: 1.5rem; /* Adjust the size as needed */
     border-radius: 50%; /* Optional: make the icon round */
   }
+
+  /* index.css */
+
+.chat-interface {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-color: #f4f4f4;
+}
+
+.messages-container {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-wrapper {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 70%;
+}
+
+.message.user-message {
+  background-color: #e0f7fa;
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.message.bot-message {
+  background-color: #d1c4e9;
+  align-self: flex-start;
+}
+
+.message-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 1rem;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-text {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.message-image {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.typing-indicator {
+  width: 20px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.input-box {
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  background-color: white;
+}
+
+.input-field {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-right: 0.5rem;
+}
+
+.send-button {
+  padding: 0.5rem 1rem;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #004d40;
+}
+
  
   

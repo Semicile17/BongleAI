@@ -46,13 +46,14 @@ export default function ChatInterface({ isSideOpen }) {
       } else {
         // Send the message to the default prompt endpoint
         try {
-          const response = await axios.post('http://127.0.0.1:4000/text', { message: messageContent });
-          const text = response.data;
+          const response = await axios.post('https://bongle-server.vercel.app/api/v1/prompt', { prompt: messageContent });
+       
+          const text = response.data.resp;
   
           // Add the bot's response with the text message
           const updatedBotResponse = [
             ...updatedMessages,
-            { sender: 'bot', content: text, type: 'text' },
+            { sender: 'bot', content: text.toString(), type: 'text' },
           ];
           setMessages(updatedBotResponse);
         } catch (error) {

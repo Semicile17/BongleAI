@@ -1,5 +1,6 @@
 // App.jsx
-import React, { useState } from 'react';
+import React, { useState ,  useEffect} from 'react';
+import axios from 'axios'
 import Sidebar from './components/sidebar';
 import InputBox from './components/inputbox';
 import BongleImg from './assets/Images/favicon.png';
@@ -14,8 +15,24 @@ const App = () => {
 
   const handleSendMessage = (message) => {
     console.log("Message sent:", message);
-    // Implement your logic to send the message here
+
   };
+
+  useEffect(() => {
+    // Function to load the model
+    const loadModel = async () => {
+      try {
+        const response = await axios.get('https://bongle-server.vercel.app/api/v1/prompt'); // Replace with your endpoint
+        console.log('Model loaded:', response.data);
+      } catch (error) {
+        console.error('Error loading model:', error);
+      }
+    };
+
+    // Load the model when the component mounts
+    loadModel();
+  }, []);
+
 
   return (
     <div className="w-full h-screen bg-black flex overflow-hidden">
@@ -29,7 +46,7 @@ const App = () => {
           </div>
         </div>
         
-        {/* Main content area including the Chat Interface */}
+
         <ChatInterface isSideOpen={isSideOpen} onSendMessage={handleSendMessage} />
       </div>
     </div>
