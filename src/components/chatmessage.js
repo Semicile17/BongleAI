@@ -1,9 +1,16 @@
 import React from 'react';
-// Import user icon if needed
-import botIcon from '../assets/Images/favicon.ico'; // Import bot icon
-import userIcon from '../assets/Images/user.ico'
+import { marked } from 'marked'; // Correctly import the named export
+import DOMPurify from 'dompurify';
+import botIcon from '../assets/Images/favicon.ico';
+import userIcon from '../assets/Images/user.ico';
+
 export default function ChatMessage({ message, sender, type, isTyping }) {
   const isUser = sender === 'user';
+
+  const createMarkup = (text) => {
+    const rawMarkup = marked(text);
+    return { __html: DOMPurify.sanitize(rawMarkup) };
+  };
 
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} p-2`}>
@@ -31,7 +38,7 @@ export default function ChatMessage({ message, sender, type, isTyping }) {
               className="max-w-full rounded-lg" 
             />
           ) : (
-            <span>{message}</span>
+            <span dangerouslySetInnerHTML={createMarkup(message)} />
           )}
         </div>
       </div>
